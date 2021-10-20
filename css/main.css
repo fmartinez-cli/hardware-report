@@ -1,0 +1,92 @@
+$border: #ced4da;
+
+textarea {
+	resize: none !important;
+	overflow: auto !important;
+	outline: none;
+	box-shadow: none !important;
+	border-color: $border !important;
+	&:hover {
+		resize: none !important;
+		overflow: auto !important;
+		outline: none;
+		box-shadow: none !important;
+		border-color: $border !important;
+	}
+}
+textarea.notes {
+	width: 99%;
+	height: 14em;
+	line-height: 31px;
+	background-image: -webkit-linear-gradient(left, white 0, transparent 0), -webkit-linear-gradient(right, white 0, transparent 0), -webkit-linear-gradient(white 30px, rgb(17, 16, 16) 30px, rgb(17,16,16) 31px, white 31px);
+	background-repeat: repeat-y;
+	background-size: 100% 100%, 100% 100%, 100% 31px;
+	background-attachment: local;
+}
+
+
+
+
+
+/*Tamaño de la celdas personalizadas de boostrap**/
+.size{
+  width: 8px;
+}
+
+
+body{
+ font-family: tahoma;
+ font-size: 14px;
+}
+#centrado{
+ text-align: center;
+}
+table {
+ margin: auto;
+}
+img{
+ margin: auto;
+ display: block;
+}
+#fi la{
+ font-size: 13px;
+ background: #b9c9fe;
+ color: #039;
+}
+#error{
+ color: red;
+ font-size: 12px;
+}
+#codigo{
+ color: blue;
+ font-size: 36px;
+}
+table th {
+ background-color: #b9c9fe;
+}
+
+
+
+
+.card-box {
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 0px #c5c5c5;
+    margin-bottom: 30px;
+    float: left;
+    border-radius: 10px;
+}
+.card-box .card-thumbnail {
+    max-height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: 1s;
+}
+.card-box .card-thumbnail:hover {
+    transform: scale(30.9);
+}
+.card-box h3 a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
