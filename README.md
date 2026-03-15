@@ -6,7 +6,13 @@ A fast, no-login web application for reporting the physical condition of thin cl
 
 ## 📸 Screenshots
 
-> _(Add screenshots of the main dashboard, device report page, and DataTables view)_
+| Home(GIF) | Device Report(GIF) |
+|:---:|:---:|
+| ![Home](assets/home.png.gif) | ![Report](assets/device_report.png.gif) |
+
+| Dashboard(screenshot) | DataTables(screenshot) |
+|:---:|:---:|
+| ![Dashboard](assets/dashboard.png) | ![Export](assets/datatables.png) |
 
 ---
 
