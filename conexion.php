@@ -1,23 +1,27 @@
 <?php
+// conexion.php — database connection
+// Credentials are loaded from config.php (excluded from version control)
 
-/*$connect = new PDO("mysql:host=localhost;dbname=php_consultapdo", "root", "");*/
-	
-// DB CREDENCIALES DE USUARIO.
-define('DB_HOST','10.19.16.68');
-define('DB_USER','root');
-define('DB_PASS','imaginart3');
-define('DB_NAME','reporte');
- 
-//establecemos conexión.
-try
-{
+$config_file = dirname(__FILE__) . '/config.php';
 
-$connect = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME,DB_USER, DB_PASS,
-array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"));
-}
-catch (PDOException $e)
-{
-exit("Error: " . $e->getMessage());
+if (!file_exists($config_file)) {
+    die('<div style="font-family:sans-serif;padding:2rem;color:#dc3545;">
+        <h4>Configuration file not found</h4>
+        <p>Copy <code>config.example.php</code> to <code>config.php</code> and fill in your database credentials.</p>
+    </div>');
 }
 
+require_once $config_file;
+
+try {
+    $connect = new PDO(
+        "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME,
+        DB_USER,
+        DB_PASS,
+        [PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'"]
+    );
+    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    exit("Connection error: " . $e->getMessage());
+}
 ?>

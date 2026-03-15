@@ -138,7 +138,7 @@ if (window.history.replaceState) { // verificamos disponibilidad
   <tbody>
     <tr>
       <th scope="row">IP DeathNet</th>
-      <td>172.16.6.125</td>
+      <td>x.x.x.x</td>
     </tr>
       <th scope="row">Modelo</th>
       <td>T620</td>
@@ -252,12 +252,12 @@ foreach($rango_ip as $rango)
 {
 	$rango = str_replace('*','(.*)', $rango);
 
-    if(preg_match('/'.$rango.'/', $ip_visitante))//mi ip es 10.19.8.179, si esta dentro del rango, se muestra el primer iframe(10.19.16.68) sino, se muestra el segundo iframe(172.16.7.124)
+    if(preg_match('/'.$rango.'/', $ip_visitante))//mi ip es x.x.x.x, si esta dentro del rango, se muestra el primer iframe(x.x.x.x) sino, se muestra el segundo iframe(172.16.7.124)
 	{
-	  echo "<iframe src='http://10.19.16.68/reporte/datatables2.php' height='100%' width='100%'></iframe>"; //utilizar comillas simples dentro de las etiquetas pues las comillas dobles dan problemas
+	  echo "<iframe src='" . APP_URL_INTERNAL . "' height='100%' width='100%'></iframe>"; //utilizar comillas simples dentro de las etiquetas pues las comillas dobles dan problemas
 	}else{
   
-  echo "<iframe src='http://172.16.7.124/reporte/datatables2.php' height='100%' width='100%'></iframe>";
+  echo "<iframe src='" . APP_URL_EXTERNAL . "' height='100%' width='100%'></iframe>";
   }
  }
 }

@@ -135,7 +135,7 @@ if (window.history.replaceState) { // verificamos disponibilidad
   <tbody>
     <tr>
       <th scope="row">IP DeathNet</th>
-      <td>172.16.6.120</td>
+      <td>x.x.x.x</td>
     </tr>
       <th scope="row">Modelo</th>
       <td> T620</td>
@@ -233,33 +233,54 @@ print_r($sql->errorInfo());
  
   <div class="shadow p-3 mb-5 bg-body rounded">
  
- <?php
+  <?php
+/* ============================================
+   MANTENER LÓGICA ORIGINAL + ADAPTACIÓN AUTOMÁTICA
+   ============================================ */
 
+// Rangos IP (como en el original pero expandido)
+$rangos_internos = ['10.19.*.*', '10.0.*.*', '192.168.*.*'];
 
-/* Listamos un rango de IPs*/
-$rango_ip = array('10.19.*.*');
-
-/* Obtener direcci�n IP del visitante */
-$ip_visitante = $_SERVER['REMOTE_ADDR'];
-
-  
-/* Checamos si la IP del visitante esta dentro del rango de IPs denegadas*/
-
-if(!empty($rango_ip))
-{
-foreach($rango_ip as $rango)
-{
-	$rango = str_replace('*','(.*)', $rango);
-
-    if(preg_match('/'.$rango.'/', $ip_visitante))//mi ip es 10.19.8.179, si esta dentro del rango, se muestra el primer iframe(10.19.16.68) sino, se muestra el segundo iframe(172.16.7.124)
-	{
-	  echo "<iframe src='http://10.19.16.68/reporte/datatables2.php' height='100%' width='100%'></iframe>"; //utilizar comillas simples dentro de las etiquetas pues las comillas dobles dan problemas
-	}else{
-  
-  echo "<iframe src='http://172.16.7.124/reporte/datatables2.php' height='100%' width='100%'></iframe>";
-  }
- }
+// URLs según entorno
+if ($_SERVER['SERVER_NAME'] === 'localhost') {
+    // XAMPP - Desarrollo
+    $urls = [
+        'interno' => 'http://localhost/reporte/datatables2.php',
+        'externo' => 'http://localhost/reporte/datatables2.php' // Misma en desarrollo
+    ];
+} else {
+    // Producción - URLs originales
+    $urls = [
+        'interno' => APP_URL_INTERNAL,
+        'externo' => APP_URL_EXTERNAL
+    ];
 }
+
+// IP del cliente
+$ip = $_SERVER['REMOTE_ADDR'];
+
+// Verificar si está en rangos internos (lógica del original mejorada)
+$es_interno = false;
+foreach ($rangos_internos as $rango) {
+    $patron = str_replace(['.', '*'], ['\.', '.*'], $rango);
+    if (preg_match('/^' . $patron . '$/', $ip)) {
+        $es_interno = true;
+        break;
+    }
+}
+
+// Elegir URL
+$url_final = $es_interno ? $urls['interno'] : $urls['externo'];
+
+// Mostrar (igual al original pero con URL adaptada)
+echo "<iframe src='$url_final' height='100%' width='100%'></iframe>";
+
+// Info adicional
+echo "<!-- 
+    Entorno: " . ($_SERVER['SERVER_NAME'] === 'localhost' ? 'XAMPP' : 'Producción') . "
+    IP: $ip
+    Tipo: " . ($es_interno ? 'Interno' : 'Externo') . "
+-->";
 ?>
  </div>
   <!----------------------------------------- inicia el footer---------------------------------------------------------------------------------------- -->
@@ -294,11 +315,11 @@ foreach($rango_ip as $rango)
                 $threeSixty.prevFrame();
             });
 
-            $threeSixty.on('down', function() {
-                $('.ui, h1, h2, .label, .examples').stop().animate({
-                    opacity: 0
-                }, 300);
-            });
+            // $threeSixty.on('down', function() {
+            //     $('.ui, h1, h2, .label, .examples').stop().animate({
+            //         opacity: 0
+            //     }, 300);
+            // });
 
             $threeSixty.on('up', function() {
                 $('.ui, h1, h2, .label, .examples').stop().animate({
