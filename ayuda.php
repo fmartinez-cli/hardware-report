@@ -67,9 +67,9 @@ p {
     
         <h5 class="card-title">Pagina de Inicio</h5>
         <p class="card-text text-left"><strong>1.-</strong>La pagina de <strong>Inicio</strong> nos da una vision rapida de las 13 thin clients con las que contamos en la bahia. La cual, se puede acceder desde las siguientes direcciones:<br>
-        <a href="/reporte/index.php" target="_blank">10.19.16.68/reporte</a> 
+        <a href="/hardware-report/" target="_blank">your-server/hardware-report</a> 
         <br>
-        <a href="/reporte/index.php" target="_blank">172.16.7.124/reporte</a>
+        <a href="/hardware-report/" target="_blank">your-server/hardware-report</a>
         </p>
        <p><strong>2.-</strong><strong>Tambien,</strong> es el punto de acceso a los formularios
         de reporte individuales de cada maquina o el estatus  general.</p>
@@ -105,7 +105,7 @@ p {
       <div class="row">
       <div class="col"> 
      <h5>Formularios</h5>
-        <p><strong>1.-</strong><strong>Los formularios</strong> de cada equipo, son la herramienta con la que se genera el reporte del estado actual de la maquina.Se puede acceder a ellos a través de la pagina de <strong>Inicio</strong> con el boton "Reporte"</p>
+        <p><strong>1.-</strong><strong>Los formularios</strong> de cada equipo, son la herramienta con la que se genera el reporte del estado actual de la maquina.Se puede acceder a ellos a travï¿½s de la pagina de <strong>Inicio</strong> con el boton "Reporte"</p>
       </div>
       
   <div class="col">
@@ -307,7 +307,7 @@ p {
         <h4>1.Abrir</h4>
         <p> <strong>Abrir</strong> la pagina de reportes en :<br> <a href="/reporte/index.php" target="_blank">10.19.16.68/reporte</a> 
         <br>
-        <a href="/reporte/index.php" target="_blank">172.16.7.124/reporte</a></p>
+        <a href="/hardware-report/" target="_blank">your-server/hardware-report</a>
         </div>
         
          <div class="col">
