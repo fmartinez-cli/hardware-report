@@ -176,7 +176,7 @@ No authentication required — access is controlled at the network level (LAN on
 
 ## 🤝 Contributing
 
-Pull requests are welcome. For major changes, please open an issue first.
+Pull requests are welcome. For major changes, please open an issue firs.
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/my-feature`)
